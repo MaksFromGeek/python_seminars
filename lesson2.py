@@ -107,21 +107,20 @@
 # на новой строчке каждое. Здесь каждое число – это масса соответствующего арбуза. 
 # Все числа натуральные и не превышают 30000.
 
-max_count = 0
+min_weight = 0
+max_weight = 0
 count = 0
-n = int(input())
+n = int(input('Введите колличество арбузов '))
 for _ in range(n):
-    temp = int(input())
-    if temp > 0:
+    weight = int(input(f'Введите вес арбузов всего {n} раз '))
+    if weigth > 0:
         count += 1
+    elif weight > 30000: 
+            weigth = max_weight
     else:
-        if count > max_count:
-            max_count = count
-        count = 0
-if max_count == 0 and count != 0:
-    print(count)
+         if weigth < 30000:
+              weigth = min_weight
+if min_weight > 0 and max_weight > 0:
+    print({max_weight}, {min_weight})
 else:
-    print(max_count)
-
-
-
+    print(count)
