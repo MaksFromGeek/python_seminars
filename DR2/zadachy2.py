@@ -39,7 +39,7 @@
 #
 # 10 -> 1 2 4 8
 
-n = int(input())
+n = int(input('N: '))
 power = 1
 while power <= n:
     print(power, end = ' ')
