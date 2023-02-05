@@ -1,9 +1,12 @@
-a = 'hello'
-for i in a:
+# a = 'hello'
+# for i in a:
+#     print(i)
 
-for ind in range(len(a)):
-    print(a[ind])
+# for ind in range(len(a)):
+#     print(a[ind])
 
+# for i in range(3):
+#     print('HELLO', end = ' ')
 
 
 # 9. По данному целому неотрицательному n вычислите значение n!. N! = 1 * 2 * 3 * … * N 
@@ -21,10 +24,11 @@ for ind in range(len(a)):
 # i = 2
 # while i <= n:
 #     fact *= i
-#     i *= 1
+#     i += 1
 #     print(fact)
 
-# Задача. Дано натуральное число А > 1. Отпределите, каким по счету числом Фибоначи оно является, т.е. 
+
+# 11. Дано натуральное число А > 1. Отпределите, каким по счету числом Фибоначи оно является, т.е. 
 # выведите такое число n, что ф(n) = а
 
 # fib1 = 1
@@ -68,17 +72,6 @@ for ind in range(len(a)):
 # строках располагается N целых чисел. Каждое число – среднесуточная температура в соответствующий день. 
 # Температуры – целые числа и лежат в диапазоне от –50 до 50
 
-# from random import randint
-# n = int(input())
-# i = 0
-# warm_days = 0
-# while i < n:
-#     temp = randint(-50, 51)
-#     if temp > 0:
-#         warm_days += 1
-#     i += 1
-#     print(warm_days)
-
 # max_count = 0
 # count = 0
 # n = int(input())
@@ -95,6 +88,17 @@ for ind in range(len(a)):
 # else:
 #     print(max_count)
 
+# from random import randint
+# n = int(input())
+# i = 0
+# warm_days = 0
+# while i < n:
+#     temp = randint(-50, 51)
+#     if temp > 0:
+#         warm_days += 1
+#     i += 1
+#     print(warm_days)
+
 
 # 15. Иван Васильевич пришел на рынок и решил купить два арбуза: один для себя, а другой для тещи. 
 # Понятно, что для себя нужно выбрать арбуз потяжелей, а для тещи полегче. Но вот незадача: арбузов 
@@ -103,7 +107,21 @@ for ind in range(len(a)):
 # на новой строчке каждое. Здесь каждое число – это масса соответствующего арбуза. 
 # Все числа натуральные и не превышают 30000.
 
-
+max_count = 0
+count = 0
+n = int(input())
+for _ in range(n):
+    temp = int(input())
+    if temp > 0:
+        count += 1
+    else:
+        if count > max_count:
+            max_count = count
+        count = 0
+if max_count == 0 and count != 0:
+    print(count)
+else:
+    print(max_count)
 
 
 
