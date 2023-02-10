@@ -8,13 +8,13 @@
 # -> 1
 
 # n = int(input('Введите длину массива: '))
-# l = int(input ('Введите искомое число: '))
+# x = int(input ('Введите искомое число: '))
 # m = 0
-# for i in range(1,n):
+# for i in range(1,n+1):
 #     print(i, end = ' ')
-#     if l == i:
+#     if x == i:
 #         m += 1
-# print(f'Число {l} в нашем массиве встречается {m} раз')
+# print(f'Число {x} в нашем массиве встречается {m} раз')
 
 
 # Задача 18: Требуется найти в массиве A[1..N] самый близкий по величине элемент к заданному числу X. 
@@ -26,14 +26,15 @@
 # 6
 # -> 5
 
-# numbers = list(map(int, input('Введите количество элементов в массиве:_').strip().split()))
-# x = int(input('Введите число Х: ').strip())
+n = list(map(int, input('Введите ч/з пробел количество элементов в массиве:_').strip().split()))
+x = int(input('Введите число Х: ').strip())
 
-# res = numbers[0]
-# for i in numbers:
-#     if abs(i - x) < abs(res - x):
-#         res = i
-# print(f'ближайшим к числу Х будет число {res}')
+res = n[0]
+print(n, end = ' ')
+for i in n:
+    if abs(i - x) < abs(res - x):
+        res = i
+print(f'ближайшим к числу Х будет число {res}')
 
 
 # Задача 20: В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность. 
@@ -64,25 +65,25 @@
 # Вывод:
 # 12
 
-import re
-def isCyrillic(text):
-	return bool(re.search('[а-яА-Я]', text))
-points_en = {1:'AEIOULNSTR',
-      	2:'DG',
-      	3:'BCMP',
-      	4:'FHVWY',
-      	5:'K',
-      	8:'JZ',
-      	10:'QZ'}
-points_ru = {1:'АВЕИНОРСТ',
-      	2:'ДКЛМПУ',
-      	3:'БГЁЬЯ',
-      	4:'ЙЫ',
-      	5:'ЖЗХЦЧ',
-        8:'ШЭЮ',
-      	10:'ФЩЪ'}
-text = input('Введите текст на русском или английском языках').upper()
-if isCyrillic(text):
-	print(f'вы набрали {sum([k for i in text for k, v in points_ru.items() if i in v])} очков')
-else:
-	print(f'you scored {sum([k for i in text for k, v in points_en.items() if i in v])} points')
+# import re
+# def isCyrillic(text):
+# 	return bool(re.search('[а-яА-Я]', text))
+# points_en = {1:'AEIOULNSTR',
+#       	2:'DG',
+#       	3:'BCMP',
+#       	4:'FHVWY',
+#       	5:'K',
+#       	8:'JZ',
+#       	10:'QZ'}
+# points_ru = {1:'АВЕИНОРСТ',
+#       	2:'ДКЛМПУ',
+#       	3:'БГЁЬЯ',
+#       	4:'ЙЫ',
+#       	5:'ЖЗХЦЧ',
+#         8:'ШЭЮ',
+#       	10:'ФЩЪ'}
+# text = input('Введите слово на русском или английском языках').upper()
+# if isCyrillic(text):
+# 	print(f'вы набрали {sum([k for i in text for k, v in points_ru.items() if i in v])} очков')
+# else:
+# 	print(f'you scored {sum([k for i in text for k, v in points_en.items() if i in v])} points')
