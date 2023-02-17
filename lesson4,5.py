@@ -64,17 +64,17 @@
 # a0 = 0, a1 = 1, ak = ak-1 + ak-2 (k > 1). Требуется найти N-е число Фибоначчи
 
 # def fib(n):
-#     if n in [1,2]:
-#     #     fib = 0
-#     # elif n == 1:
-#     #     fib = 1
-#     # else:
+#     if n == 0:
+#         return 0
+#     elif n == 1:
 #         return 1
-#     return fib(n-1) + fib(n-2)
+#     else:
+#         return fib(n-1) + fib(n-2)
+
 
 # n = int(input())
 # # for i in range(n):
-# print(fib(n)) # для выполнения предыдущ. строки нужно n заменить на i
+# print(fib(n))  # для выполнения предыдущ. строки нужно n заменить на i
 
 
 # 2. Хакер Василий получил доступ к классному журналу и хочет заменить все свои
@@ -94,27 +94,88 @@
 # print(min, max)
 # print(list_1)
 
-n = int(input('введите количество оценок: '))
-list_1 = []
-min_mark = 5
-max_mark = 0
-list_1 = [int(input(f'Введите оценку: ')) for i in range(n)]
-for i in list_1:
-    if i < min_mark:
-        min_mark = i
-    if i > max_mark:
-        max_mark = i
-print(min_mark, max_mark)
-print(list_1)
+# another
+# n = int(input('введите количество оценок: '))
+# list_1 = []
+# min_mark = 5
+# max_mark = 0
+# list_1 = [int(input(f'Введите оценку: ')) for i in range(n)]
+# for i in list_1:
+#     if i < min_mark:
+#         min_mark = i
+#     if i > max_mark:
+#         max_mark = i
+# print(min_mark, max_mark)
+# print(list_1)
 
-for i in range(len(list_1)):
-    if list_1[i] == max_mark:
-        list_1[i] = min_mark
-print(list_1)
+# for i in range(len(list_1)):
+#     if list_1[i] == max_mark:
+#         list_1[i] = min_mark
+# print(list_1)
+
+# another
+# import random
+# import time
+# magazine = [int(input('Введите оценку: ')) for _ in range(int(input('Введите кол-во оценок: ')))]
+# # magazine = [random.randint(1, 10 ** 6) for _ in range(10 ** 6)] # для рандомных чисел
+# # list comprehension
+# start = time.perf_counter()
+# maxx = max(magazine) # этот способ быстрее для очень больших чисел от 1млн. (т.к. Python написан на С++ 
+# minn = min(magazine) # и встроенные функции работают быстрее из-за работы на низкоуровневом языке С++)
+# end = time.perf_counter()
+# print(end - start)
+# # 2 способ нахождения мин/макс (быстрее для маленьких чисел)
+# start = time.perf_counter()
+# minn = magazine[0]
+# maxx = magazine[0]
+# for el in magazine:
+#     if el < minn:
+#         minn = el
+#     elif el > maxx:
+#         maxx = el
+# end = time.perf_counter()
+# print(end - start)
+
+# print(magazine)
+# for ind in range(0, len(magazine)):
+#     if magazine[ind] == maxx:
+#         magazine[ind] = minn
+# print(magazine)
 
 
 # Напишите функцию, которая принимает одно число и проверяет, является ли оно простым
 
+# def searchnumbers(n):
+#     for i in range(2, n):
+#         if(n%i == 0):
+#             return ' не простое'
+#         return 'простое'
+# print (searchnumbers(12))
 
+def simple(n):
+    for i in range(2, n // 2 + 1):
+        if n % i == 0:
+            return 'Число не является простым'
+    return 'простое'
 
+for i in range(1, 20):
+    print(i, simple(i))
 
+# n = int(input()) # 20 -> 2, 4, 5, 10
+# for i in range(2, n // 2 + 1):
+#     if n % i == 0:
+#         print('Число не является простым')
+#         break
+# else:
+#     print('Простое')
+
+# # такое же решение, только с флагом
+# n = int(input()) # 20 -> 2, 4, 5, 10
+# flag = False
+# for i in range(2, n // 2 + 1):
+#     if n % i == 0:
+#         print('Число не является простым')
+#         flag = True
+#         break
+# if not flag:
+#     print('Число простое')
