@@ -188,25 +188,25 @@
 # - количество элементов в первом массиве, затем N чисел - элементы массива. Затем число M
 # - количество элементов во втором массиве. Затем элементы второго массива. Массив - это список.
 
-import random
-import time
-first_list = [random.randint(1, 100) for _ in range(10 ** 6)]
-second_list = [random.randint(1, 100) for _ in range(10 ** 6)]
+# import random
+# import time
+# first_list = [random.randint(1, 100) for _ in range(10 ** 6)]
+# second_list = [random.randint(1, 100) for _ in range(10 ** 6)]
 
-start = time.perf_counter()
-for el in first_list:
-    if el not in second_list:
-        print(el)
-end = time.perf_counter()
-print(end - start)
+# start = time.perf_counter()
+# for el in first_list:
+#     if el not in second_list:
+#         print(el)
+# end = time.perf_counter()
+# print(end - start)
 
-start = time.perf_counter()
-second_set = set(second_list)
-for el in first_list:
-    if el not in second_set:
-        print(el)
-end = time.perf_counter()
-print(end - start)
+# start = time.perf_counter()
+# second_set = set(second_list)
+# for el in first_list:
+#     if el not in second_set:
+#         print(el)
+# end = time.perf_counter()
+# print(end - start)
 
 
 # 41. Дан массив, состоящий из целых чисел. Напишите программу, которая в данном массиве определит
@@ -219,11 +219,56 @@ print(end - start)
 # что любые два элемента, равные друг другу образуют одну пару, которую необходимо посчитать.
 # Вводится список чисел. Все числа списка находятся на разных строках.
 
+# some_list = []
+# while True:
+#     number = int(input())
+#     if number == 0:
+#         break
+#     some_list.append(number)
+
+# count_dict = {}  # 2: 2, 3: 3, 4: 1, 5: 1
+# for el in some_list:
+#     if count_dict.get(el): # проверяем, если есть этот ключ - тогда мы добавляем к значению единицу
+#         count_dict[el] += 1
+#     else:
+#         count_dict[el] = 1 # а если его нету - тогда создаем
+
+# count = 0
+# for value in count_dict.values():
+#     count += value // 2
+# print(count)
+
 
 # 45. Два различных натуральных числа n и m называются дружественными, если сумма делителей числа n
 # (включая 1, но исключая само n) равна числу m и наоборот. Например, 220 и 284 – дружественные числа.
 # По данному числу k выведите все пары дружественных чисел, каждое из которых не превосходит k.
-# Программа получает на вход одно натуральное число k, не превосходящее 105.
+# Программа получает на вход одно натуральное число k, не превосходящее 10 в степени 5.
 # Программа должна вывести все пары дружественных чисел, каждое из которых не превосходит k.
 # Пары необходимо выводить по одной в строке, разделяя пробелами. Каждая пара должна быть выведена
 # только один раз (перестановка чисел новую пару не дает).
+
+import time
+
+
+def sum_div(n):
+    summa = 0
+    for i in range(1, n // 2 + 1):
+        if n % i == 0:
+            summa += i
+    return summa
+
+start = time.perf_counter()
+print(f'начало отсчета {start}')
+
+summ_dict = {}  # 284: 220,
+k = int(input('Введите число к: '))
+
+for number in range(2, k + 1):
+    if number in summ_dict:
+        if sum_div(number) == summ_dict[number]:
+            print(f'дружественные числа {number, summ_dict[number]}')
+            end = time.perf_counter()
+            print(f'конец отсчета {end - start} секунд')
+    summ_dict[sum_div(number)] = number
+
+
