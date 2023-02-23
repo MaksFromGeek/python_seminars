@@ -4,7 +4,7 @@ list_1 = [1, 2, 3, 8]
 print(*list_1)
 
 
-Lecture3
+# Lecture3
 
 # def sum_str(*args):
 #     res = ''
