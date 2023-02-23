@@ -11,7 +11,7 @@
 # диапазону (т.е. не меньше заданного минимума и не больше заданного максимума)
 
 min, max = int(input('min ')), int(input('max '))
-index = [i for i in range(0, max)]
+index = [i for i in range(min -1, max)]
 print(index)
 
 
