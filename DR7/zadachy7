@@ -10,17 +10,16 @@
 # Ввод: пара-ра-рам рам-пам-папам па-ра-па-да
 # Вывод:Парам пам-пам
 
-def f(words):
-    return sum(1 for i in words if i in 'аеёиоуыэюя')
+# def ritm(words):
+#     return sum(1 for i in words if i in 'аеёиоуыэюя')
     
-    
-c = input("Введите стих: ").lower()
-st = c.lower().split()
-t = f(st[0])
-if all([f(i) == t for i in st]):
-    print('Парам пам-пам')
-else:
-    print('Пам парам')
+# stih = input("Введите стих: ").lower()
+# phrases = stih.lower().split()
+# temp = ritm(phrases[0])
+# if all([ritm(i) == temp for i in phrases]):
+#     print('Парам пам-пам')
+# else:
+#     print('Пам парам')
 
 
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), которая 
@@ -37,7 +36,14 @@ else:
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
 
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for i in range(1, num_rows + 1):
+        element = []
+        for j in range(1, num_columns + 1):
+            element.append(str(operation(i, j)))
+        print("\t".join(element)) # print(''.join(f'{e:<4}' for e in answer))
 
+print_operation_table(lambda x, y: x * y)
 
 
 

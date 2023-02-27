@@ -12,10 +12,10 @@
 # a, b = map(int, input('Введите ч/з пробел число A и его степень B: ').split())
 # print(f' число А в степени В равно: {degree(a,b)}')
 
-def get_exp(number1,number2):
+def get_exp(number1, number2):
     if number2 == 0:
         return 1
-    return number1*get_exp(number1,(number2 - 1))
+    return number1 * get_exp(number1, (number2 - 1))
 print(get_exp(8, 3))
 
 
