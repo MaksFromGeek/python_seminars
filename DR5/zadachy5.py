@@ -12,15 +12,21 @@
 # a, b = map(int, input('Введите ч/з пробел число A и его степень B: ').split())
 # print(f' число А в степени В равно: {degree(a,b)}')
 
+def get_exp(number1,number2):
+    if number2 == 0:
+        return 1
+    return number1*get_exp(number1,(number2 - 1))
+print(get_exp(8, 3))
+
 
 # Задача 28: Напишите рекурсивную функцию sum(a, b), возвращающую сумму двух целых неотрицательных чисел.
 # Из всех арифметических операций допускаются только +1 и -1. Также нельзя использовать циклы.
 # Пример: 2 2 -> 4; 3 8 -> 11
 # 3 + 1 (к 3 добавить 1 восемь раз)
 
-def sum(a, b):
-    if b == 0:
-        return a
-    return sum(a + 1, b - 1)
+# def sum(a, b):
+#     if b == 0:
+#         return a
+#     return sum(a + 1, b - 1)
 
-print(sum(int(input('Введите число А: ')), int(input('Введите число В: '))))
+# print(sum(int(input('Введите число А: ')), int(input('Введите число В: '))))
