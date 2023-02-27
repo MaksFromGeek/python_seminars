@@ -41,7 +41,7 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
         element = []
         for j in range(1, num_columns + 1):
             element.append(str(operation(i, j)))
-        print("\t".join(element)) # print(''.join(f'{e:<4}' for e in answer))
+        print("\t".join(element)) # print(''.join(f'{e:<4}' for e in element))
 
 print_operation_table(lambda x, y: x * y)
 
