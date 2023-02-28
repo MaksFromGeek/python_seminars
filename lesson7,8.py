@@ -155,6 +155,49 @@
 
 # LESSON 8
 
+# with open('les8test.txt', 'r', encoding='utf-8') as file:
+# # text = file.read().splitlines()
+# # print(text)
+#
+# while True:
+# line = file.readline()
+# if not line:
+# break
+# print(line.strip())
+
+
+# with open('filetest.txt', 'a', encoding='utf-8') as file:
+#     some_list = ['привет', 'пока']
+#     for word in some_list:
+#         file.write(word + '\n')
+
+
+# Создать файл, добавить в него текст и посчитать количество букв в тексте
+import time
+
+# with open('test20.txt', 'r', encoding='utf-8') as file:
+# find_letter = input()
+# count = 0
+# start = time.time()
+# for letter in file.read():
+# if letter == find_letter:
+# count += 1
+# end = time.time()
+# print(count)
+# print(end - start)
+
+
+with open('test20.txt', 'w', encoding='utf-8') as file:
+    find_letter = input('введите искомую букву: ')
+    start = time.time()
+    print(file.read().count(find_letter))
+    end = time.time()
+    print(end - start)
+
+
+
+
+
 
 
 
