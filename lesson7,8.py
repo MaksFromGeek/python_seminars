@@ -187,7 +187,7 @@ import time
 # print(end - start)
 
 
-with open('test20.txt', 'w', encoding='utf-8') as file:
+with open('test20.txt', 'r', encoding='utf-8') as file:
     find_letter = input('введите искомую букву: ')
     start = time.time()
     print(file.read().count(find_letter))
