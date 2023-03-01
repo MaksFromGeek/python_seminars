@@ -165,7 +165,7 @@
 # break
 # print(line.strip())
 
-
+# Запись данных в несуществующий файл:
 # with open('filetest.txt', 'a', encoding='utf-8') as file:
 #     some_list = ['привет', 'пока']
 #     for word in some_list:
@@ -173,31 +173,91 @@
 
 
 # Создать файл, добавить в него текст и посчитать количество букв в тексте
-import time
 
+import time
 # with open('test20.txt', 'r', encoding='utf-8') as file:
-# find_letter = input()
+# find_letter = input('введите искомую букву: ')
 # count = 0
+
 # start = time.time()
 # for letter in file.read():
 # if letter == find_letter:
 # count += 1
+
 # end = time.time()
 # print(count)
 # print(end - start)
 
 
+# with open('test20.txt', 'r', encoding='utf-8') as file:
+#     find_letter = input('введите искомую букву: ')
+
+#     start = time.time()
+#     print(file.read().count(find_letter))
+    
+#     end = time.time()
+#     print(end - start)
+
+
+# Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение 
+# элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
+# Для тех кто сделает, следующим заданием будет: сделать рандоммные элементы в стороннем файле. 
+# (В отдельном файле указываются позиции элементов в нашем списке, эти элементы и перемножаются 
+# между собой)
+
+# from random import randint
+# with open('test20.txt', 'w') as file:
+#     for _ in range(10):                  # количество повторов цикла
+#         file.write(str(randint(0, 9)) + '\n') # число записывать нельзя, поэтому преобразовываем в строчку
+#         spis = []                             # чтобы было построчно, добавляем \n
+#         for _ in range(10):                   # сгенерировали список
+#             spis.append(randint(1, 10))
+#             multi = 1
+#     print(spis)
+# with open('test20.txt', 'r') as file:
+#     for el in file.read().split():
+#         multi *= spis[int(el)]
+#         print(spis[int(el)])
+#         print(multi)
+
+# другое решение
+from random import randint
+n = int(input('Введите кол-во элементов в списке: '))
+some_list = [randint(-n, n) for _ in range(n)]   # сгенерировали список
+print(some_list)
+
+with open('test20.txt', 'w', encoding='utf-8') as file:
+    for _ in range(randint(1, n)):                # количество повторов цикла
+        file.write(str(randint(0, n - 1)) + '\n') # число записывать нельзя, поэтому преобразовываем 
+                                                  # в строчку, чтобы было построчно, добавляем \n
 with open('test20.txt', 'r', encoding='utf-8') as file:
-    find_letter = input('введите искомую букву: ')
-    start = time.time()
-    print(file.read().count(find_letter))
-    end = time.time()
-    print(end - start)
+    mult = 1
+    for ind in file.read().splitlines():
+        mult *= some_list[int(ind)]
+print(mult)
 
 
+# Задача 3 из ДЗ №8. Классическая задача про бассейн, который заполняется через 3 трубы, слишком проста. 
+# У нас труб будет больше. Бассейн можно заполнить из N труб. В файле pipes.txt записаны времена 
+# заполнения всего бассейна только одной данной работающей трубой (в часах). Затем после пустой строки 
+# перечислены трубы, которые будут заполнять бассейн. Сколько минут на это потребуется?
 
+# Номер трубы соответствует номеру строки, в которой записана ее производительность.
+# Результат запишите в файл time.txt
+# Пример
+# Ввод
+# 1
+# 2
+# 3
+# (пустая строка)
+# 1 2 3
+# Вывод: 32.72727272727273
 
-
+f = open('/Users/maksimpolanin/Desktop/dotnet/python_course/python_seminars/DR8/pipes.txt', 'r')
+g = open('/Users/maksimpolanin/Desktop/dotnet/python_course/python_seminars/DR8/time.txt', 'w')
+a = [int(st.rstrip()) for st in iter(f.readline, '\n')]
+print(60 / sum([1 / a[int(x) - 1] for x in f.readline().split()]), file = g)
+f,g.close()
 
 
 

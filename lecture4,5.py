@@ -13,8 +13,8 @@
 # list_1 = [(i, i*i) for i in list_1 if i % 2 == 0]
 # print(list_1)
 
-import os
-print(os.getcwd())
+# import os
+# print(os.getcwd())
 
 # /Users/maksimpolanin/Desktop/dotnet/python_course/python_seminars
 
